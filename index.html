@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARSAH WEB TASARIM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="title_img" href="https://i.hizliresim.com/tu9kpx3.png">
+    
+    <style>
+
+        
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans", serif;
+    font-weight: bold;
+    scroll-behavior: smooth;
+}
+
+
+body {
+    
+    background: url(https://i.hizliresim.com/qvwzi9c.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 50%;
+    transition: 0.5s ease;
+    line-height: 1.6;
+    color: #333;
+    
+    
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: flex-end; /* Menü öğelerini ortalar */
+    align-items: center;
+    /* background-color: rgba(216, 5, 5, 0.411); */
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding-right: 80px;
+    height: 95px;
+    transition:  2s ease;
+
+}
+
+
+
+.navbar.scrolled {
+    /* background-color: rgba(41, 2, 2, 0.8);  */
+    opacity: 5.5; /* Opaklık seviyesi */
+}
+
+
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    list-style: none;
+    
+}
+.menu li {
+    position: relative; /* Dropdown için gerekli */
+}
+
+.menu a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    display: block;
+    border-radius: 20px;
+    transition:  0.5s;
+    
+}
+.menu a:hover {
+    background-color: #376197;
+    border-radius: 20px;
+}
+
+
+/* Açılır Menü Stili */
+.dropdown-menu {
+    display: none; /* Başlangıçta gizlenir */
+    position: absolute;
+    top: 100%; /* Altında görüntülenir */
+    left: 0;
+    background-color: #376197;
+    opacity: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+.dropdown-menu li a {
+    color: #ffffff;
+    padding: 10px 20px;
+    white-space: nowrap; /* Uzun yazılar taşmaz */
+
+}
+.dropdown-menu li a:hover {
+    background-color:#1b304b;
+    color:#ffffff;
+}
+
+
+.dropdown:hover .dropdown-menu {
+    display: block; 
+}
+ 
+
+.logo {
+    display: inline;
+    position: absolute; /* Esnek bir pozisyon sağlamak için */
+    right: 80%; /* Soldan mesafe */
+    z-index: 1000; /* Öne çıkmasını sağlamak için */
+    transition: 0.3s ease-in-out; 
+}
+
+.logo img {
+    height: 50px; 
+    
+}
+.logo:hover{
+    transform: scale(1.2);
+}
+
+
+#hakkimizda, #hizmetler, #foti {
+    padding: 10vw 5vw; /* Kutuların iç boşluklarını artırır */
+    max-width: 100vw; /* Kutunun genişliğini artırır */
+    margin: 0 auto; /* Ortalamayı korur */
+    background-color: rgba(0, 0, 0, 0.329); /* Mevcut arka plan korundu */
+   
+    margin-top: 0px; /* Bölümler arası boşluk */
+    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Daha belirgin bir gölge */
+    text-align: center;
+    
+    
+    
+}
+
+
+
+
+#hakkimizda h2{
+    
+    font-size: 10em; 
+    margin-bottom: 20px;
+    color: #dadee0;
+    transition: 0.5s ease;
+    
+    
+}
+
+#hizmetler h2 {
+    font-size: 4em; 
+    margin-bottom: 20px;
+    color: #b6afdf;
+    transition: 0.5s ease;
+    
+    
+}
+
+/* anasayafadaki sağ taraftaki resim*/
+.image-frame, .image-frame-left, .image-3 {
+    /* position: fixed; */
+    display: inline-flex;
+    top: 0;
+    right: 10%;
+    background-color: #ffffff;
+    width: 23vw;
+    height: 23vw;
+    border: 0px solid #0078d7; /* Çerçeve rengi ve boyutu */
+    border-radius: 25px; /*köşe yuvarlama*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 1vw;
+    transition: 0.3s ease; /* Geçişin yumuşak olması için */
+}
+
+
+.image-frame img,.image-frame-left img, .image-3 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*Görselin çerçeveye uyum sağlaması */
+    transition: 0.5s ease;
+    filter: brightness(50%);
+}
+
+.image-frame:hover,
+.image-frame-left:hover,
+.image-3:hover{
+
+    transform: scale(1.1);
+}
+
+.image-frame img:hover,
+.image-frame-left img:hover,
+.image-3 img:hover {
+    filter: brightness(100%); /* Resmi karartır */
+}
+
+/* Açılır Menü */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -220px; /* Başlangıçta gizli */
+    width: 220px;
+    height: 100%;
+    background-color: #000000;
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease; /* Kayma animasyonu */
+    z-index: 1000;
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-menu ul li {
+    margin: 20px 0;
+}
+
+.side-menu ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 10px 30px;
+    transition:  0.3s, color 0.3s;
+    background-color: #376197;
+    border-radius: 10px;
+    
+}
+
+.side-menu ul li a:hover {
+    background-color: #575757;
+    color: #ffffff;
+    border-radius: 5px;
+    transform: scaley(1.1);
+}
+
+/* Menü Toggle Butonu */
+.menu-toggle {
+    position: fixed;
+    top: 70px;
+    left: 20px; /* Buton başlangıçta menünün dışında */
+    font-size: 1.5rem;
+    background-color: #376197;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: left 0.3s ease; /* Butonun kayma animasyonu */
+    list-style: none;
+}
+
+.menu-toggle:hover {
+    background-color:#1b304b ;
+}
+
+
+
+
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 43px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #376197;
+    transition: 500ms;
+    
+}
+
+
+.scroll-to-top:hover {
+    background-color: #274368;
+    transform: translateY(-5px);
+    
+}
+
+#up_footer{
+
+    background-color:#000422;
+    opacity: 1;
+    padding-top: 200px;
+    margin-top: 50px;
+    padding-bottom: 10px;
+    
+
+
+}
+
+footer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #000; /* Arka plan rengi */
+    color: #fff;
+    text-align: center; /* Metni ortalar */
+}
+
+.footer-logo {
+    position: absolute;
+    left: 20px; /* Sol tarafa biraz mesafe bırakır */
+    top: 55%; /* Yatayda ortalar */
+    transform: translateY(-50%); /* Ortalamanın düzgün çalışması için */
+}
+
+.footer-logo img {
+    width: 20vw; /* Logonun boyutunu ayarlayın */
+    height: auto; /* Oranı korur */
+}
+
+
+@media screen and (max-width: 888px) { /* 888px altındaki ekranlar için */
+    .menu {
+        display: none; /* Menü tamamen gizlenir */
+    }
+
+    .image-frame, .image-frame-left, .image-3{
+        width: 20em;
+        height: 20em ;
+        transition: 0.3s ease;
+        
+    }
+
+    #hakkimizda h2, #hizmetler h2 {
+        font-size: 2em;
+    }
+
+    
+    .footer-logo {
+        position: absolute;
+        left:5%; /* Sol tarafa biraz mesafe bırakır */
+        top: 37%; /* Yatayda ortalar */
+        transform: translateY(-50%); /* Ortalamanın düzgün çalışması için */
+    }
+
+    .logo{
+        right: 50%;
+        transform: translateX(50%) ;
+    }
+
+}
+
+
+/*sosyal medya ikonlar*/
+.social-media-icons-footer {
+    position: absolute;
+    top: 40%; /* Footer'ın orta noktasına hizalar */
+    right: 50px; /* Footer'ın sağından mesafe */
+    transform: translateY(-30%); /* Tam orta hizalama için */
+    display: inline-flex;
+    flex-direction: column; /* İkonları alt alta yerleştirir */
+    gap: 10px; /* İkonlar arasında boşluk */
+}
+
+
+
+.social-media-icons-footer a ion-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+
+}
+
+.social-media-icons-footer a ion-icon:hover {
+    transform: scale(1.2);
+}
+
+/*iletişim yazıalrı*/
+.contact-info {
+    position: absolute; /* Konumlandırmayı mümkün kılar */
+    top: 30%; /* Footer'ın üstünden mesafe */
+    left: 50%; /* Footer'ın sağından mesafe */
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center; /* Yazıları ortalar */
+    
+}
+
+.contact-info h3 {
+    font-size: 1.5rem; /* Başlık boyutu */
+    color: #ffffff; /* Yazı rengi */
+    margin-bottom: 10px; /* Başlık ile altındaki bilgiler arasında boşluk */
+}
+
+.contact-info p {
+    font-size: 1rem; /* Metin boyutu */
+    color: #ffffff; /* Yazı rengi */
+    margin: 5px 0; /* Her bilgi arasına boşluk ekler */
+}
+
+.telto{
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.telto:hover{
+    text-decoration: underline;
+    
+}
+
+ion-icon {
+
+    color: #0078d7;
+    font-size: 2rem;
+    
+
+}
+.up_icon{
+    color: bisque;
+    font-size: 2em;
+}
+
+/* Scrollbar stilini özelleştirme */
+::-webkit-scrollbar {
+    width: 10px; /* Kaydırma çubuğunun genişliği */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #0078d7; /* Mavi renk */
+    border-radius: 15px; /* Köşeleri yuvarlat */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #1b03ee; /* Hover olduğunda daha koyu mavi */
+}
+
+::-webkit-scrollbar-track {
+    background: #476769; /* Arka plan rengi */
+
+}
+
+
+
+    </style>
+</head>
+
+<body >
+
+    
+    
+    
+    
+    <nav id="nav" class="navbar">
+        <div class="logo" id="logo">
+           <a href="index.html"><img src="https://i.hizliresim.com/1n2p848.png" alt="logo"></a>
+        </div>
+        <ul class="menu">
+            <li class="dropdown">
+                <a href="index.html" title="Anasayfa için tıklayınız">Anasayfa</a>
+                <!-- <ul class="dropdown-menu">
+                    <li><a href="#hakkimizda">Lorem 1</a></li>
+                    <li><a href="#hizmetler">Lorem 2</a></li>
+                    <li><a href="#foti">Fotoğraflar</a></li>
+                </ul>  -->
+            </li>    
+            
+            <li class="dropdown">
+                <a href="EKİBİMİZ.html" >Ekibimiz</a>
+            </li>
+            
+            <li class="dropdown">
+                <a href="hizmetler.html">Hizmetler</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Web Tasarım</a></li>
+                    <li><a href="#">Afiş - Broşür</a></li>
+                    <li><a href="#">Logo</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#footer">İletişim</a>
+                <ul class="dropdown-menu">
+                    
+                    
+                    
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    
+   
+
+
+
+
+<section id="hakkimizda">
+    
+    <h2>Modern Tasarımın Adresi!</h2>
+    
+ 
+</section>
+
+<section id="hizmetler">
+    <h2><li>Web Tasarım</li>
+        <li>Afiş - Broşür Tasarımı</li>
+        <li>Logo Oluşturma</li></h2>
+   
+    
+</section>
+
+<section id="foti">
+    
+<!-- anasayfadaki sağ taraftaki resim -->
+<div class="image-frame">
+    <img src="https://i.hizliresim.com/phjbyg3.jpg" alt="Ornek Resim">
+</div>
+
+<!-- anasayfadaki sol taraftaki resim -->
+<div class="image-frame-left">
+    <img src="https://i.hizliresim.com/sllkv84.png" alt="Sol Ornek Resim">
+</div>
+
+<!-- <div class="image-3">
+    <img src="https://i.hizliresim.com/6t4l3wz.jpg" alt="goril">
+
+</div> -->
+
+
+</section>
+
+<!-- Açılır Menü -->
+
+<div class="side-menu" id="sideMenu">
+    <a href="index.html"><img style="width: 200px;" src="https://i.hizliresim.com/1n2p848.png" alt="logoo"></a>
+    <ul>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="EKİBİMİZ.html">Ekibimiz</a></li>
+        <li><a href="hizmetler.html">Hizmetler</a></li>
+        <li><a href="#footer">İletişim</a></li>
+    </ul>
+</div>
+
+<footer id="up_footer">
+
+<!-- sosyal medya 3lü -->
+    <div class="social-media-icons-footer">
+        <a href="https://www.facebook.com/" target="_blank" title="Facebook">
+            <ion-icon name="logo-facebook"></ion-icon>
+        </a>
+        <a href="https://www.github.com" target="_blank" title="Github">
+            <ion-icon name="logo-github"></ion-icon>
+        </a>
+        <a href="https://www.instagram.com/arsahcom" target="_blank" title="Instagram">
+            <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+    </div>
+    
+<!-- iletişim -->
+<div class="contact-info">
+    <h3>İLETİŞİM</h3>
+    <p>Yusuf Arslan  <a class="telto" href="tel:+905072148469" style="font-weight: bolder;"> Bizi Arayın</a></p>
+    <p>İbrahim Şahin  <a class="telto" href="tel:+905067037695" style="font-weight: bolder;"> Bizi Arayın </a></p>
+</div>
+
+
+
+  <!-- footer logo -->
+    <div class="footer-logo">
+       <a href="#hakkimizda"><img src="https://i.hizliresim.com/1n2p848.png" alt="Logo"></a> 
+    </div>
+    
+    <br>
+    <p>Bizimle iletişime geçmek için    
+    <a href="mailto:arsahhub@outlook.com" style="color: #ffffff; text-decoration: none; font-weight: bolder;">arsahhub@outlook.com</a>
+    adresine e-posta gönderin.</p>
+</footer>
+
+
+<footer id="footer">
+    <button class="scroll-to-top" onclick="scrollToTop()"><ion-icon class="up_icon" name="chevron-up-outline"></ion-icon></button>
+
+
+    <p> Copyright &copy;2025  
+    <a href=https://www.arsahhub.kesug.com target="_blank" style="color: #ffffff; text-decoration: none; font-weight: bold;">ARSAH</a></p>
+</footer>
+
+
+
+
+
+
+<!-- Menü Toggle Butonu -->
+<button class="menu-toggle" id="menuToggle">☰</button>
+
+<script>
+    const menuToggle = document.getElementById('menuToggle');
+    const sideMenu = document.getElementById('sideMenu');
+    const logo = document.getElementById('logo');
+    
+    // Menüyü aç/kapat toggle fonksiyonu
+    menuToggle.addEventListener('click', (event) => {
+        event.stopPropagation(); // Tıklamanın document'a ulaşmasını engelle
+        if (sideMenu.style.left === "0px") {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+    
+    // Menü dışına tıklanınca kapatma
+    document.addEventListener('click', () => {
+        if (sideMenu.style.left === "0px") {
+            closeMenu();
+        }
+    });
+    
+    // Menüye tıklanınca document click'ini engelle
+    sideMenu.addEventListener('click', (event) => {
+        event.stopPropagation();
+    });
+    
+    // Menü açma fonksiyonu
+    function openMenu() {
+        sideMenu.style.left = "0px"; // Menüyü göster
+        menuToggle.style.left = "240px"; // Butonu menünün sağına taşı
+        logo.style.display = "none";
+    }
+    
+    // Menü kapama fonksiyonu
+    function closeMenu() {
+        sideMenu.style.left = "-220px"; // Menüyü gizle
+        menuToggle.style.left = "20px"; // Butonu başlangıç pozisyonuna getir
+        logo.style.display = "inline";
+    }
+    </script>
+
+
+<!-- navbarı kaydırdığında matlaşması -->
+<script>
+    window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) { // Sayfa 50px aşağı kaydırıldığında
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+    });
+    
+    
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    
+
+
+</script>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+</html>
+
+
