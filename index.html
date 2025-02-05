@@ -595,7 +595,7 @@ ion-icon {
 
 
 <footer id="footer">
-    <button class="scroll-to-top" onclick="scrollToTop()"><ion-icon class="up_icon" name="chevron-up-outline"></ion-icon></button>
+    <button id="scr" class="scroll-to-top" onclick="scrollToTop()"><ion-icon class="up_icon" name="chevron-up-outline"></ion-icon></button>
 
 
     <p> Copyright &copy;2025  
@@ -670,6 +670,14 @@ ion-icon {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    window.addEventListener("scroll", () => {
+    const scr= document.getElementById('scr')
+    if(window.scrollY > 10){
+        scr.style.right="50px";
+    }else{
+        scr.style.right="-50px";}
+    
+    })
     
 
 
