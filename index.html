@@ -26,7 +26,7 @@ body {
     
     background: url(https://i.hizliresim.com/qvwzi9c.jpg);
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-position: 50%;
     transition: 0.5s ease;
     line-height: 1.6;
@@ -134,9 +134,6 @@ body {
     height: 50px; 
     
 }
-.logo:hover{
-    transform: scale(1.2);
-}
 
 
 #hakkimizda, #hizmetler, #foti {
@@ -233,6 +230,7 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
+    padding-top: 50px;
 }
 
 .side-menu ul li {
@@ -260,7 +258,7 @@ body {
 /* Menü Toggle Butonu */
 .menu-toggle {
     position: fixed;
-    top: 70px;
+    top: 40px;
     left: 20px; /* Buton başlangıçta menünün dışında */
     font-size: 1.5rem;
     background-color: #376197;
@@ -270,12 +268,14 @@ body {
     padding: 10px;
     cursor: pointer;
     z-index: 1001;
-    transition: left 0.3s ease; /* Butonun kayma animasyonu */
+    transition: 0.5s; /* Butonun kayma animasyonu */
     list-style: none;
 }
 
 .menu-toggle:hover {
     background-color:#1b304b ;
+    transform:translateX(5px);
+    
 }
 
 
@@ -305,7 +305,7 @@ body {
 
 #up_footer{
 
-    background-color:#000422;
+    background-color:#575757;
     opacity: 1;
     padding-top: 200px;
     margin-top: 50px;
@@ -429,7 +429,7 @@ footer {
 
 ion-icon {
 
-    color: #0078d7;
+    color: #b6d4ec;
     font-size: 2rem;
     
 
@@ -471,7 +471,7 @@ ion-icon {
     
     <nav id="nav" class="navbar">
         <div class="logo" id="logo">
-           <a href="index.html"><img src="https://i.hizliresim.com/1n2p848.png" alt="logo"></a>
+           <a href="https://www.arsahhub.kesug.com/"><img src="https://i.hizliresim.com/1n2p848.png" alt="logo"></a>
         </div>
         <ul class="menu">
             <li class="dropdown">
@@ -530,12 +530,12 @@ ion-icon {
     
 <!-- anasayfadaki sağ taraftaki resim -->
 <div class="image-frame">
-    <img src="https://i.hizliresim.com/phjbyg3.jpg" alt="Ornek Resim">
+    <a href="https://emirkon.com" target="_blank"><img src="https://i.hizliresim.com/phjbyg3.jpg" alt="Emirkon"></a>
 </div>
 
 <!-- anasayfadaki sol taraftaki resim -->
 <div class="image-frame-left">
-    <img src="https://i.hizliresim.com/sllkv84.png" alt="Sol Ornek Resim">
+    <img src="https://i.hizliresim.com/sllkv84.png" alt="arsahcom">
 </div>
 
 <!-- <div class="image-3">
@@ -549,7 +549,7 @@ ion-icon {
 <!-- Açılır Menü -->
 
 <div class="side-menu" id="sideMenu">
-    <a href="index.html"><img style="width: 200px;" src="https://i.hizliresim.com/1n2p848.png" alt="logoo"></a>
+    <a href="https://www.arsahhub.kesug.com"><img style="width: 200px;" src="https://i.hizliresim.com/1n2p848.png" alt="logoo"></a>
     <ul>
         <li><a href="index.html">Ana Sayfa</a></li>
         <li><a href="EKİBİMİZ.html">Ekibimiz</a></li>
@@ -608,7 +608,7 @@ ion-icon {
 
 
 <!-- Menü Toggle Butonu -->
-<button class="menu-toggle" id="menuToggle">☰</button>
+<button class="menu-toggle" id="menuToggle" >☰</button>
 
 <script>
     const menuToggle = document.getElementById('menuToggle');
@@ -640,8 +640,9 @@ ion-icon {
     // Menü açma fonksiyonu
     function openMenu() {
         sideMenu.style.left = "0px"; // Menüyü göster
-        menuToggle.style.left = "240px"; // Butonu menünün sağına taşı
+        menuToggle.style.left = "-240px"; // Butonu menünün sağına taşı
         logo.style.display = "none";
+        
     }
     
     // Menü kapama fonksiyonu
